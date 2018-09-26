@@ -4,10 +4,13 @@ const path = require('path')
 const stream = require('stream')
 const zlib = require('zlib')
 const { platform } = require('os')
+const cryptoKeys = require('../config')
+
+console.log(cryptoKeys)
 
 // ## Keys ######
-const key = new Buffer([48, 239, 114, 71, 66, 242, 4, 50])
-const iv = new Buffer ([14, 166, 220, 137, 219, 237, 220, 79])
+const key = new Buffer(cryptoKeys.keys)
+const iv = new Buffer(cryptoKeys.iv)
 const algo = 'des-cbc' // type of encriptation
 const inputEncoding = 'utf8'
 const outputEncoding = 'hex'
